@@ -32,4 +32,6 @@ var app = app || {};
       .map(row => Book.all.push(new Book(row)));
   }
 
+  module.Book = Book;
+
 })(app);

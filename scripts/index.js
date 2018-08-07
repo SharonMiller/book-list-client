@@ -21,7 +21,7 @@ var app = app || {};
   })();
 
   module.render = (function () {
-    module.initIndexPage();
+    module.bookView.initIndexPage();
   })();
 
 })(app);
