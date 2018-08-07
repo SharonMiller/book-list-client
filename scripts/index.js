@@ -3,12 +3,25 @@ var app = app || {};
 
 (function (module){
 
+  let herokuURL = 'https://sm-ah-cc-booklist.herokuapp.com';
+  let localURL = 'localhost:3000';
+
+  module.isProduction = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
   module.ENVIRONMENT = {
 
-    herokuURL: 'https://sm-ah-cc-booklist.herokuapp.com',
-    localURL: 'localhost:3000',
-    apiURL: Location.protocol.includes('localhost') ? this.localURL : this.herokuURL
+
+    apiURL: module.isProduction ? herokuURL : localURL
 
   };
+
+  module.showOnly = (function() {
+    $('.tab-content').hide();
+    $('#book-view').fadeIn(750);
+  })();
+
+  module.render = (function () {
+    module.initIndexPage();
+  })();
 
 })(app);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +16,11 @@
     </li>
   </script>
 
-  <script id="book-count" type="text/x-handlebars-template">
+  <script id="book-count-template" type="text/x-handlebars-template">
     <p>{{totalBooks}} books currently added!</p>
   </script>
 </head>
+
 <body>
 
   <header>
@@ -26,7 +28,7 @@
     <h1>books app</h1>
   </header>
 
-  <section id="book-view">
+  <section id="book-view" class="tab-content">
     <h1>My Books</h1>
     <ul id="book-list">
       <!-- holds book-templates -->
@@ -36,7 +38,7 @@
     </aside>
   </section>
 
-  <section id="about-view">
+  <section id="about-view" class="tab-content">
     <p>About us, because we are great</p>
   </section>
 
@@ -44,6 +46,14 @@
     <a href="#">linkedIn</a>
     <a href="#">GitHub</a>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/models/book.js"></script>
+  <script src="./scripts/views/book-view.js"></script>
+  <script src="./scripts/views/error-view.js"></script>
 </body>
+
 </html>
