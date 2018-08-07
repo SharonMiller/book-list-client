@@ -15,13 +15,14 @@ var app = app || {};
 
   };
 
-  module.showOnly = (function() {
-    $('.tab-content').hide();
-    $('#book-view').fadeIn(750);
-  })();
+  module.showOnly = function(selector) {
+    $('.container').hide();
+    $(selector).fadeIn(750);
+  };
 
-  module.render = (function () {
-    module.bookView.initIndexPage();
-  })();
+  module.render = function (templateId, data) {
+    let template = Handlebars.compile($(`#${templateId}`)).text();
+    return template(data);
+  };
 
 })(app);

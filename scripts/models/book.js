@@ -3,6 +3,10 @@
 var app = app || {};
 
 (function (module) {
+  let errorCallback = (err) => {
+    console.error(err);
+    module.errorView.initErrorPage(err);
+  } 
 
   function Book(rawBookObj) {
     Object.keys(rawBookObj).forEach(key => this[key] = rawBookObj[key]);
