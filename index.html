@@ -5,9 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script id="book-template" type="text/x-handlebars-template">
+    <li>
+      <img src="{{image_url}}">
+      <div class="book-info">
+        <h2>{{title}}</h2>
+        <h3>{{author}}</h3>
+      </div>
+    </li>
+  </script>
 </head>
 <body>
-  <h1>Hello World</h1>
+
+  <header>
+    <img src="http://placehold.it/100x100" alt="placehold logo">
+    <h1>books app</h1>
+  </header>
+
+  <section>
+    <h1>My Books</h1>
+    <ul id="book-list">
+
+    </ul>
+  </section>
+
+  <footer>
+    <a href="#">linkedIn</a>
+    <a href="#">GitHub</a>
+  </footer>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
