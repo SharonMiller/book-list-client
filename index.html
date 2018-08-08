@@ -19,6 +19,17 @@
   <script id="error-view-template" type="text/x-handlebars-template">
     <p>{{error}}</p>
   </script>
+
+  <script id="detail-view-template" type="text/x-handlebars-template">
+    <section>
+      <h2><a href="#">{{title}}</a></h2>
+      <h3>{{author}}</h3>
+      <h3>{{isbn}}</h3>
+    </section>
+    <img src="{{img_url}}">
+    <p>{detail}}</p>
+  </script>
+  
 </head>
 
 <body>
@@ -28,19 +39,27 @@
     <h1>books app</h1>
   </header>
 
-  <section id="book-view" class="container book-view">
-    <h1>My Books</h1>
-    <ul id="book-list">
-      <!-- holds book-templates -->
-    </ul>
-    <aside id="book-stats">
-      <!-- holds book-count template -->
-    </aside>
-  </section>
+  <main>
 
-  <section id="error-view" class="container error-view">
-    <p>ERROR</p>
-  </section>
+    <section id="book-view" class="container book-view">
+      <h1>My Books</h1>
+      <ul id="book-list">
+        <!-- holds book-templates -->
+      </ul>
+      <aside id="book-stats">
+        <!-- holds book-count template -->
+      </aside>
+    </section>
+
+    <section id="error-view" class="container error-view">
+      <p>ERROR</p>
+    </section>
+
+    <section class="container detail-view" id="detail-view">
+      <!-- Holds a book in a detailed view -->
+    </section>
+
+  </main>
 
   <footer>
     <a href="#">linkedIn</a>
@@ -49,6 +68,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
   <script src="./scripts/index.js"></script>
   <script src="./scripts/models/book.js"></script>

@@ -36,6 +36,15 @@ var app = app || {};
       .map(row => Book.all.push(new Book(row)));
   }
 
+  Book.fetchOne = function (callback) {
+    $.get('/api/v1/books/:id')
+    .then(results => {
+      Book.loadAll(results);
+      callback();
+    })
+    .catch(errorCallback);
+  }
+
   module.Book = Book;
 
 })(app);
