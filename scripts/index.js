@@ -25,4 +25,6 @@ var app = app || {};
     return template(data);
   };
 
+  //ADD get for books here.
+
 })(app);
