@@ -10,7 +10,7 @@
     <li>
       <img src="{{img_url}}">
       <div class="book-info">
-        <h2>{{title}}</h2>
+        <h2><a href="/books/{{book_id}}">{{title}}</a></h2>
         <h3>{{author}}</h3>
       </div>
     </li>
@@ -27,7 +27,7 @@
       <h3>{{isbn}}</h3>
     </section>
     <img src="{{img_url}}">
-    <p>{detail}}</p>
+    <p>{{description}}</p>
   </script>
 
 </head>
@@ -91,15 +91,15 @@
     <a href="#">linkedIn</a>
     <a href="#">GitHub</a>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
-  <script src="./scripts/index.js"></script>
+  <script src="./scripts/index.js" type="text/javascript"></script>
   <script src="./scripts/models/book.js"></script>
   <script src="./scripts/views/book-view.js"></script>
   <script src="./scripts/views/error-view.js"></script>
+  <script src="./scripts/controllers/routes.js"></script>
 </body>
 
 </html>

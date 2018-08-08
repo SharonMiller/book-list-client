@@ -14,9 +14,9 @@ var app = app || {};
 
   Book.all = [];
 
-  Book.prototype.toHtml = function () {
+  Book.prototype.toHtml = function (templateId) {
 
-    let template = Handlebars.compile($('#book-template').text());
+    let template = Handlebars.compile($(templateId).text());
 
     return template(this);
   }
@@ -36,11 +36,12 @@ var app = app || {};
       .map(row => Book.all.push(new Book(row)));
   }
 
-  Book.fetchOne = function (callback) {
-    $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books/:id`)
+  Book.fetchOne = function (ctx, callback) {
+    $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books/${ctx.params.id}`)
     .then(results => {
+      Book.all = [];
       Book.loadAll(results);
-      callback();
+      callback(ctx);
     })
     .catch(errorCallback);
   }

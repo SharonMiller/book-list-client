@@ -20,7 +20,7 @@ var app = app || {};
   };
 
   module.render = function (templateId, data) {
-    let template = Handlebars.compile($(`#${templateId}`)).text();
+    let template = Handlebars.compile($(`#${templateId}`).text());
     return template(data);
   };
 
