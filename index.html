@@ -22,14 +22,14 @@
 
   <script id="detail-view-template" type="text/x-handlebars-template">
     <section>
-      <h2><a href="#">{{title}}</a></h2>
+      <h2>{{title}}</h2>
       <h3>{{author}}</h3>
       <h3>{{isbn}}</h3>
     </section>
     <img src="{{img_url}}">
     <p>{detail}}</p>
   </script>
-  
+
 </head>
 
 <body>
@@ -57,6 +57,32 @@
 
     <section class="container detail-view" id="detail-view">
       <!-- Holds a book in a detailed view -->
+    </section>
+
+    <section id="form-view" class="form-view container">
+
+      <form id="add-book-form">
+        <fieldset>
+          <legend>add a new book</legend>
+          <label>
+            <input type="text" name="title" id="form-title" placeholder="Title">
+          </label>
+          <label>
+            <input type="text" name="author" id="form-author" placeholder="Author">
+          </label>
+          <label>
+            <input type="text" name="isbn" id="form-isbn" placeholder="isbn">
+          </label>
+          <label>
+            <input type="text" name="img_url" id="form-img_url" placeholder="Image URL">
+          </label>
+          <label>
+            <input type="text" name="description" id="form-description" placeholder="description...">
+          </label>
+          <button type="submit">submit</button>
+        </fieldset>
+      </form>
+
     </section>
 
   </main>
