@@ -16,13 +16,13 @@ var app = app || {};
 
   Book.prototype.toHtml = function () {
 
-    let template = Handlebars.compile($('book-template')).text();
+    let template = Handlebars.compile($('#book-template').text());
 
     return template(this);
   }
 
   Book.fetchAll = function (callback) {
-    $.get('/api/v1/books')
+    $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books`)
       .then(results => {
         Book.loadAll(results);
         callback();
@@ -37,11 +37,17 @@ var app = app || {};
   }
 
   Book.fetchOne = function (callback) {
-    $.get('/api/v1/books/:id')
+    $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books/:id`)
     .then(results => {
       Book.loadAll(results);
       callback();
     })
+    .catch(errorCallback);
+  }
+
+  Book.createBook = function (callback) {
+    $.post(`${module.ENVIRONMENT.apiURL}/api/v1/books/add`)
+    .then( () => page('/'))
     .catch(errorCallback);
   }
 

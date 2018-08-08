@@ -4,14 +4,13 @@ var app = app || {};
 (function (module){
 
   let herokuURL = 'https://sm-ah-cc-booklist.herokuapp.com';
-  let localURL = 'localhost:3000';
+  let localURL = 'http://localhost:3000';
 
-  module.isProduction = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-
+  module.isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  console.log(module.isLocal);
   module.ENVIRONMENT = {
 
-
-    apiURL: module.isProduction ? herokuURL : localURL
+    apiURL: module.isLocal ? localURL : herokuURL
 
   };
 
