@@ -41,6 +41,7 @@ var app = app || {};
     $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books/${ctx.params.id}`)
     .then(results => {
       Book.all = [];
+      ctx.book = results[0];
       Book.loadAll(results);
       callback(ctx);
     })
@@ -53,10 +54,15 @@ var app = app || {};
     .catch(errorCallback);
   }
 
-  Book.delete = function (ctx, callback) {
+  Book.destroy = function (ctx, callback) {
     $.ajax({url: `${module.ENVIRONMENT.apiURL}/api/v1/books/delete/${ctx}`, method: 'DELETE'})
     .then( () => page('/'))
     .catch(errorCallback);
+  }
+
+  Book.update = function (ctx, callback) {
+    $.ajax({url: `${module.ENVIRONMENT.apiURL}/api/v1/books/update/${ctx.id}`, method: 'PUT'})
+
   }
 
   module.Book = Book;
