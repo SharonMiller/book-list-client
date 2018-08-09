@@ -47,8 +47,8 @@ var app = app || {};
     .catch(errorCallback);
   }
 
-  Book.createBook = function (callback) {
-    $.post(`${module.ENVIRONMENT.apiURL}/api/v1/books/add`)
+  Book.create = function (book, callback) {
+    $.post(`${module.ENVIRONMENT.apiURL}/api/v1/books/add`, book)
     .then( () => page('/'))
     .catch(errorCallback);
   }
