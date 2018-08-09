@@ -1,0 +1,11 @@
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+main {
+  background-color: #FF9;
+}
+main li {
+  background-color: #777;
+}

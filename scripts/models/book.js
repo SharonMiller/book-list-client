@@ -31,6 +31,7 @@ var app = app || {};
   }
 
   Book.loadAll = function (rows) {
+    Book.all = [];
     rows
       .sort((a, b) => b.title - a.title)
       .map(row => Book.all.push(new Book(row)));
@@ -46,8 +47,8 @@ var app = app || {};
     .catch(errorCallback);
   }
 
-  Book.createBook = function (callback) {
-    $.post(`${module.ENVIRONMENT.apiURL}/api/v1/books/add`)
+  Book.create = function (book, callback) {
+    $.post(`${module.ENVIRONMENT.apiURL}/api/v1/books/add`, book)
     .then( () => page('/'))
     .catch(errorCallback);
   }
