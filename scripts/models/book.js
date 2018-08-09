@@ -14,15 +14,15 @@ var app = app || {};
 
   Book.all = [];
 
-  Book.prototype.toHtml = function () {
+  Book.prototype.toHtml = function (templateId) {
 
-    let template = Handlebars.compile($('book-template')).text();
+    let template = Handlebars.compile($(templateId).text());
 
     return template(this);
   }
 
   Book.fetchAll = function (callback) {
-    $.get('/api/v1/books')
+    $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books`)
       .then(results => {
         Book.loadAll(results);
         callback();
@@ -34,6 +34,22 @@ var app = app || {};
     rows
       .sort((a, b) => b.title - a.title)
       .map(row => Book.all.push(new Book(row)));
+  }
+
+  Book.fetchOne = function (ctx, callback) {
+    $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books/${ctx.params.id}`)
+    .then(results => {
+      Book.all = [];
+      Book.loadAll(results);
+      callback(ctx);
+    })
+    .catch(errorCallback);
+  }
+
+  Book.createBook = function (callback) {
+    $.post(`${module.ENVIRONMENT.apiURL}/api/v1/books/add`)
+    .then( () => page('/'))
+    .catch(errorCallback);
   }
 
   module.Book = Book;
