@@ -16,6 +16,11 @@ var app = app || {};
     $('#detail-view').empty();
     module.showOnly('.detail-view')
     $('#detail-view').append(module.render('detail-view-template', app.Book.all[0]));
+
+    $('#delete-book-btn').on('click', (event) => {
+      event.preventDefault();
+      module.Book.delete($('#delete-book-btn').data('id'));
+    })
   }
   
   bookView.initFormPage = () => {
@@ -35,7 +40,6 @@ var app = app || {};
       module.Book.create(book);
     })
 
-    // create a book
   }
 
   module.bookView = bookView;

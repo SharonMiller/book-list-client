@@ -53,6 +53,12 @@ var app = app || {};
     .catch(errorCallback);
   }
 
+  Book.delete = function (ctx, callback) {
+    $.ajax({url: `${module.ENVIRONMENT.apiURL}/api/v1/books/delete/${ctx}`, method: 'DELETE'})
+    .then( () => page('/'))
+    .catch(errorCallback);
+  }
+
   module.Book = Book;
 
 })(app);
