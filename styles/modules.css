@@ -12,3 +12,19 @@
 *                 BOOK LIST ITEM                  *
 ***************************************************/
 
+#book-list li {
+  max-width: 90%;
+  margin: auto;
+  text-align: center;
+  padding-top: 2%; 
+}
+
+#book-list li>img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#book-list li>div {
+  text-align: left;
+  background-color: #333;
+}
