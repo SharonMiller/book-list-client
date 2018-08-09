@@ -17,7 +17,10 @@ var app = app || {};
     module.showOnly('.detail-view')
     $('#detail-view').append(module.render('detail-view-template', app.Book.all[0]));
   }
-
+  
+  bookView.initFormPage = () => {
+    module.showOnly('.form-view');
+  }
   module.bookView = bookView;
 
 }) (app);
