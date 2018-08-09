@@ -31,6 +31,7 @@ var app = app || {};
   }
 
   Book.loadAll = function (rows) {
+    Book.all = [];
     rows
       .sort((a, b) => b.title - a.title)
       .map(row => Book.all.push(new Book(row)));
