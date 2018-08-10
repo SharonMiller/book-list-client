@@ -5,16 +5,67 @@
 /**************************************************
 *                     HEADER                      *
 ***************************************************/
+#logo{
+  max-width: 30px;
+  margin-top: 20px;
+  float: left;
+  clear: both;
+}
+.logo-container h1{
+  font-weight: 100;
+  padding: 15px;
+  
+}
 
 
+nav ul {
+  display: none;
+  padding: 0;
+  list-style: none;
+  clear: both;
+}
 
+/* hamburger menu hover */
+
+element.icon-menu:hover ul{
+  display:block;
+  max-width:  100%;
+  background: #333;
+  font-size: 20px;
+}
+
+element.icon-menu{
+  right:35px;
+  top: 40px;
+  font-size: 50px;
+  color: grey;
+  position: absolute;
+
+}
+  a, a:link, a:active {
+    text-decoration: none;
+    color: #777;
+    text-align: left;
+  }
+
+  #header-title {
+    left:60px;
+    top: 400px;
+    font-size: 10px;
+    font-weight: lighter;
+    color: grey;
+    position: absolute;
+  }
 /**************************************************
 *                 BOOK LIST ITEM                  *
 ***************************************************/
+.book-info {
+  background: transparent;
+  color: #333; 
+}
 
 #book-list li {
-  max-width: 90%;
-  margin: 5px auto;
+  max-width: 100%;
   text-align: center;
   padding-top: 2%; 
 }
@@ -26,5 +77,8 @@
 
 #book-list li>div {
   text-align: left;
-  background-color: #333;
+  color: #333;
+  background-color: grey;
+  /* background-color: #333; */
 }
+
