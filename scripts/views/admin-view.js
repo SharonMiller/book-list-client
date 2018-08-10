@@ -8,7 +8,7 @@ var app = app || {};
 
   adminView.initAdminPage = () => {
     console.log('init admin page');
-    module.showOnly('.admin-form-view'); 
+    module.showOnly('.admin-form-view');
     $('#tryAgain').hide();
     $('#admin-form').on('submit', (event) => {
 
@@ -23,10 +23,10 @@ var app = app || {};
         $('detail-btn-container').children().hide();
         $('#admin-form').trigger("reset");
         $('#tryAgain').show();
-      
+
       }
     });
-}
+  }
   module.adminView = adminView;
 
 })(app);
