@@ -26,8 +26,6 @@ var app = app || {};
     $('#update-book-btn').on('click', (event) => {
       event.preventDefault();
       // we need to go to the update 
-      console.log('update');
-      console.log(ctx.book);
       module.showOnly('.update-form-view');
 
       $('#update-form-title').val(ctx.book.title);
@@ -59,9 +57,8 @@ var app = app || {};
 
   bookView.initUpdateFormPage = (ctx) => {
     module.showOnly('.update-form-view');
-    console.log(ctx.book);
-    $('#update-form-title').value=`${ctx.title}`
     // do something here with the form
+    console.log('handling submit');
     $('#update-book-form').on('submit', (event) => {
       event.preventDefault();
       let t = event.target;
@@ -72,7 +69,8 @@ var app = app || {};
         img_url: t.img_url.value,
         description: t.description.value
       }
-      module.Book.create(book);
+      console.log(book);
+      module.Book.update(book);
     })
 
   }
