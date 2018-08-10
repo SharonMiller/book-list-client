@@ -38,6 +38,7 @@ var app = app || {};
   }
 
   Book.fetchOne = function (ctx, callback) {
+    console.log('client sending request to server to fetch one record');
     $.get(`${module.ENVIRONMENT.apiURL}/api/v1/books/${ctx.params.id}`)
       .then(results => {
         Book.all = [];
@@ -62,12 +63,12 @@ var app = app || {};
 
   Book.update = function (book, callback) {
     $.ajax({
-      url: `${module.ENVIRONMENT.apiURL}/api/v1/books/update/${ctx.id}`,
+      url: `${module.ENVIRONMENT.apiURL}/api/v1/books/update/${book.book_id}`,
       method: 'PUT',
       data: book
     })
-    .then(() => page('/'))
-    .catch(errorCallback);
+      .then(() => page('/'))
+      .catch(errorCallback);
 
   }
 

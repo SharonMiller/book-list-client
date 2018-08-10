@@ -26,13 +26,16 @@ var app = app || {};
     $('#update-book-btn').on('click', (event) => {
       event.preventDefault();
       // we need to go to the update 
-      module.showOnly('.update-form-view');
+      console.log('detailView button handler fired');
+      // module.showOnly('.update-form-view');
 
       $('#update-form-title').val(ctx.book.title);
       $('#update-form-author').val(ctx.book.author);
       $('#update-form-isbn').val(ctx.book.isbn);
       $('#update-form-img_url').val(ctx.book.img_url);
       $('#update-form-description').val(ctx.book.description);
+
+      page(`/books/update/${ctx.book.book_id}`)
     })
   }
 
@@ -58,18 +61,17 @@ var app = app || {};
   bookView.initUpdateFormPage = (ctx) => {
     module.showOnly('.update-form-view');
     // do something here with the form
-    console.log('handling submit');
     $('#update-book-form').on('submit', (event) => {
       event.preventDefault();
       let t = event.target;
       let book = {
+        book_id: ctx.params.id,
         title: t.title.value,
         author: t.author.value,
         isbn: t.isbn.value,
         img_url: t.img_url.value,
         description: t.description.value
       }
-      console.log(book);
       module.Book.update(book);
     })
 
