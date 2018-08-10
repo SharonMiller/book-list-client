@@ -34,7 +34,7 @@ var app = app || {};
       $('#update-form-isbn').val(ctx.book.isbn);
       $('#update-form-img_url').val(ctx.book.img_url);
       $('#update-form-description').val(ctx.book.description);
-      
+
       page(`/books/update/${ctx.book.book_id}`)
     })
   }
@@ -60,12 +60,9 @@ var app = app || {};
 
   bookView.initUpdateFormPage = (ctx) => {
     module.showOnly('.update-form-view');
-    console.log('initUpdateFormPage function invoked');
-    console.log(ctx);
     // do something here with the form
     $('#update-book-form').on('submit', (event) => {
       event.preventDefault();
-      console.log('event handler in initUpdateFormPage fired');
       let t = event.target;
       let book = {
         book_id: ctx.params.id,
@@ -75,7 +72,6 @@ var app = app || {};
         img_url: t.img_url.value,
         description: t.description.value
       }
-      console.log(book);
       module.Book.update(book);
     })
 
